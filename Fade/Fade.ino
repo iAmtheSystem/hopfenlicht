@@ -93,13 +93,77 @@ void fadeAll(int led1, int led2, int led3, int led4, int fadeInTime, int duratio
   delay(durationOff);  
 }
 
+void trickledownandupFade(){
+  Serial.write("Lets do a trickledownandupFade!\n");
+  fadeAll(LED1,LED1,LED1,LED1,2000,3000,2000,500);
+  fadeAll(LED2,LED2,LED2,LED2,2000,3000,2000,500);
+  fadeAll(LED3,LED3,LED3,LED3,2000,3000,2000,500);
+  fadeAll(LED4,LED4,LED4,LED4,2000,3000,2000,500);
+  fadeAll(LED3,LED3,LED3,LED3,2000,3000,2000,500);
+  fadeAll(LED2,LED2,LED2,LED2,2000,3000,2000,500);
+}
+
 // the loop routine runs over and over again forever:
+// so gehts: fadeAll(int led1, int led2, int led3, int led4, int fadeInTime, int durationOn, int fadeOutTime, int durationOff)
 void loop() {
   fadeAll(LED1,LED1,LED1,LED1,3000,2000,4000,500);
   fadeAll(LED1,LED2,LED3,LED3,3000,2000,4000,500);
-  fadeAll(LED2,LED3,LED4,LED4,3000,2000,4000,500);
-  fadeAll(LED3,LED3,LED4,LED4,3000,2000,4000,500);
-  fadeAll(LED1,LED3,LED3,LED4,3000,2000,4000,500);
-  fadeAll(LED1,LED1,LED4,LED4,3000,2000,4000,500);
+  
 
+}
+
+
+
+// Beispiel
+
+void trickledownandupSimple(){
+  Serial.write("Lets do a trickledownandupSimple!\n");
+  blinkAll(LED1,LED1,LED1,LED1,3000,500,1);
+  blinkAll(LED2,LED2,LED2,LED2,3000,500,1);
+  blinkAll(LED3,LED3,LED3,LED3,3000,500,1);
+  blinkAll(LED4,LED4,LED4,LED4,3000,500,1);
+  blinkAll(LED3,LED3,LED3,LED3,3000,500,1);
+  blinkAll(LED2,LED2,LED2,LED2,3000,500,1);
+}
+
+void crossoverSimple(){
+  Serial.write("Lets do a crossoverSimple!\n");
+  blinkAll(LED1,LED1,LED3,LED3,3000,500,1);
+  blinkAll(LED2,LED2,LED4,LED4,3000,500,1);
+  blinkAll(LED1,LED1,LED3,LED3,3000,500,1);
+  blinkAll(LED2,LED2,LED4,LED4,3000,500,1);
+}
+
+void hopscotchSimple(){
+  Serial.write("Lets do a hopscotchSimple!\n");
+  blinkAll(LED1,LED1,LED4,LED4,3000,500,1);
+  blinkAll(LED2,LED2,LED3,LED3,3000,500,1);
+  blinkAll(LED1,LED1,LED4,LED4,3000,500,1);
+  blinkAll(LED2,LED2,LED3,LED3,3000,500,1);
+}
+
+
+// the loop function runs over and over again forever
+void loop() {
+  Serial.write("Hello master Carina! Lets looooop!\n");
+  
+  trickledownandupSimple();
+  trickledownandupSimple();
+  trickledownandupSimple();
+  trickledownandupSimple();
+  blinkAll(LED1,LED1,LED1,LED1,3000,500,1);
+
+  blinkAll(LED1,LED2,LED3,LED4,5000,500,5);
+
+  crossoverSimple();
+  crossoverSimple();
+
+  blinkAll(LED1,LED2,LED3,LED4,5000,500,5);
+  
+  hopscotchSimple();
+  hopscotchSimple();
+  
+  blinkAll(LED1,LED2,LED3,LED4,5000,500,5);
+
+  
 }
